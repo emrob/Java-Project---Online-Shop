@@ -14,12 +14,17 @@ public class Stock {
     private Basket basket;
     private Shop shop;
 
+    public Stock() {
+    }
+
     public Stock(int quantity, double price, Brand brand, ProductType productType){
         this.quantity = quantity;
         this.price = price;
         this.brand = brand;
         this.productType = productType;
     }
+
+
 
     @Id
     @GeneratedValue
@@ -69,7 +74,7 @@ public class Stock {
     }
 
     @ManyToOne
-    @JoinColumn(name="basket_id", nullable = false)
+    @JoinColumn(name="basket_id")
     public Basket getBasket() {
         return basket;
     }
@@ -79,7 +84,7 @@ public class Stock {
     }
 
     @ManyToOne
-    @JoinColumn(name="shop_id", nullable = false)
+    @JoinColumn(name="shop_id")
     public Shop getShop() {
         return shop;
     }

@@ -13,7 +13,6 @@ public class DBHelper {
     private static Session session;
 
     public static void save(Object object) {
-
         session = HibernateUtil.getSessionFactory().openSession();
         try {
             transaction = session.beginTransaction();

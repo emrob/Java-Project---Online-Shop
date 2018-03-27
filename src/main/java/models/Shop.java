@@ -63,4 +63,6 @@ public class Shop {
     public void setStockItems(Set<Stock> stockItems) {
         this.stockItems = stockItems;
     }
+
+
 }

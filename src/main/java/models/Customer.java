@@ -14,9 +14,10 @@ public class Customer {
     }
 
 
-    public Customer(String name, Basket basket) {
+    public Customer(String name) {
         this.name = name;
-        this.basket = basket;
+        this.basket = null;
+
     }
 
     @Id
@@ -40,8 +41,8 @@ public class Customer {
         this.name = name;
     }
 
-    @OneToOne
-    @JoinColumn(name="customer_id", nullable = false)
+    @OneToOne(fetch = FetchType.LAZY, mappedBy="customer")
+//    @PrimaryKeyJoinColumn
     public Basket getBasket() {
         return basket;
     }
