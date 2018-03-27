@@ -19,11 +19,10 @@ public class StockController {
 
     private void setupEndPoints() {
            Spark.get("/products", (req, res) -> {
-
-            Map<String, Object> model = new HashMap();
-            List<Stock> stock = DBHelper.getAll(Stock.class);
-            model.put("template", "templates/stock/index.vtl");
-            model.put("stock", stock);
+            Map<String, Object> model = new HashMap<>();
+            List<Stock> stockItem = DBHelper.getAll(Stock.class);
+            model.put("stockItem", stockItem);
+               model.put("template", "templates/stock/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
     }

@@ -1,1 +1,21 @@
 <p class="pageHeader">All Products:</p>
+
+<div class="container">
+<table>
+    <tr>
+        <th>Quantity:</th>
+        <th>Price:</th>
+        <th>Brand:</th>
+        <th>Type:</th>
+        <th></th>
+    </tr>
+    #foreach($stock in $stockItem)
+    <tr>
+        <td>$stock.getQuantity()</td>
+        <td>$stock.getPrice()</td>
+        <td>$stock.getBrand()</td>
+        <td>$stock.getProductType()</td>
+    </tr>
+    #end
+</table>
+</div>
