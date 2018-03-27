@@ -7,6 +7,19 @@ public class Runner {
 
     public static void main(String[] args) {
 
+        DBHelper.deleteAll(Stock.class);
+        DBHelper.deleteAll(Customer.class);
+        DBHelper.deleteAll(Basket.class);
+
+        Shop shop = new Shop("Ethics & Cosmetics");
+        DBHelper.save(shop);
+
+        Customer customer1 = new Customer("Marie");
+        Basket basket1 = new Basket(customer1);
+        customer1.setBasket(basket1);
+        DBHelper.save(customer1);
+        DBHelper.save(basket1);
+
         Stock stock1 = new Stock(200, 5.99, Brand.Green_People, ProductType.Eyeliner);
         DBHelper.save(stock1);
         Stock stock2 = new Stock(300, 35.99, Brand.Eden, ProductType.Perfume);
@@ -20,15 +33,14 @@ public class Runner {
         DBHelper.delete(stock3);
 
 
-        Customer customer1 = new Customer("Marie");
-        DBHelper.save((customer1));
-        Basket basket1 = new Basket(customer1);
-        DBHelper.save(basket1);
 
-        Shop shop = new Shop("Ethics & Cosmetics");
-        DBHelper.save(shop);
+
 
         List<Stock> allStock = DBHelper.getAll(Stock.class);
+
+        System.out.println();
+
+
 
 
 
