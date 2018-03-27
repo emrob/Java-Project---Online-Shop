@@ -1,19 +1,39 @@
 package models;
 
+import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Set;
 
+@Entity
+@Table(name="shop")
 public class Shop {
 
+    private int id;
     private String name;
     private Set<Basket>baskets;
     private Set<Stock> stockItems;
 
-    public Shop(String name, Set<Basket> baskets, Set<Stock> stockItems) {
-        this.name = name;
-        this.baskets = baskets;
-        this.stockItems = stockItems;
+    public Shop() {
     }
 
+    public Shop(String name) {
+        this.name = name;
+//        this.stockItems= stockItems;
+
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Column(name="name")
     public String getName() {
         return name;
     }
@@ -22,6 +42,7 @@ public class Shop {
         this.name = name;
     }
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "shop")
     public Set<Basket> getBaskets() {
         return baskets;
     }
@@ -29,7 +50,12 @@ public class Shop {
     public void setBaskets(Set<Basket> baskets) {
         this.baskets = baskets;
     }
+//
+//    public int getBasketSize(){
+//        return baskets.size();
+//    }
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "shop")
     public Set<Stock> getStockItems() {
         return stockItems;
     }

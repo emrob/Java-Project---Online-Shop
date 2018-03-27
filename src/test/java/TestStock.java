@@ -36,5 +36,6 @@ public class TestStock {
     public void checkStockType(){
         assertEquals(ProductType.Mascara, stock.getProductType());
     }
+
 }
 

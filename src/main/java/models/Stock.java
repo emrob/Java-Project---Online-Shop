@@ -1,5 +1,9 @@
 package models;
 
+import javax.persistence.*;
+
+@Entity
+@Table(name="stock")
 public class Stock {
 
     private int id;
@@ -7,6 +11,8 @@ public class Stock {
     private double price;
     private Brand brand;
     private ProductType productType;
+    private Basket basket;
+    private Shop shop;
 
     public Stock(int quantity, double price, Brand brand, ProductType productType){
         this.quantity = quantity;
@@ -15,6 +21,18 @@ public class Stock {
         this.productType = productType;
     }
 
+    @Id
+    @GeneratedValue
+    @Column(name = "id")
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Column(name="quantity")
     public int getQuantity() {
         return quantity;
     }
@@ -23,6 +41,7 @@ public class Stock {
         this.quantity = quantity;
     }
 
+    @Column(name="price")
     public double getPrice() {
         return price;
     }
@@ -31,6 +50,7 @@ public class Stock {
         this.price = price;
     }
 
+    @Column(name="brand")
     public Brand getBrand() {
         return brand;
     }
@@ -39,11 +59,32 @@ public class Stock {
         this.brand = brand;
     }
 
+    @Column(name="product_type")
     public ProductType getProductType() {
         return productType;
     }
 
     public void setProductType(ProductType productType) {
         this.productType = productType;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="basket_id", nullable = false)
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
+    }
+
+    @ManyToOne
+    @JoinColumn(name="shop_id", nullable = false)
+    public Shop getShop() {
+        return shop;
+    }
+
+    public void setShop(Shop shop) {
+        this.shop = shop;
     }
 }
