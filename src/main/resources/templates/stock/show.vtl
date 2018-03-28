@@ -1,7 +1,7 @@
 <div>
 
     <p>Brand: $stockItem.getBrand()</p>
-    <p>Price: $stockItem.getPrice()</p>
+    <p>Price: £ $stockItem.getPrice()</p>
     <p>Quantity: $stockItem.getQuantity()</p>
     <p>Product: $stockItem.getProductType()</p>
 
@@ -14,3 +14,8 @@
 <a href="/products/$stockItem.getId()/edit" class="button center">Edit</a>
 
 <a href="/products" class="button center">Back to product list</a>
+
+<form action="/products/$stockItem.getId()/delete" method="post">
+<input type="submit" value="Delete" class="button center">
+</form>
+
