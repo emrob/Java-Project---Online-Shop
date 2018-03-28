@@ -1,0 +1,31 @@
+<p class ="pageHeader">Edit Item</p>
+
+<form action="/stock/$stock.getId()" method="post">
+<label for="quantity">Quantity</label>
+<input class="inputbox" type="text" name="quantity" required="true" value="$stock.getQuantity()"/>
+
+<label for="price">Price</label>
+<input class="inputbox" type="text"
+name="price" required="true" value="$stock.getPrice()"/>
+
+<label for="brand">Brand</label>
+<input class="inputbox" type="text"
+       name="brand" required="true" value="$stock.getBrand()"/>
+
+<label for="productType">Product Type</label>
+<input class="inputbox" type="text"
+       name="productType" required="true" value="$stock.getProductType()"/>
+
+<input type="submit" value="Save" class="button">
+
+</form>
+
+<a href="/stock/$stock.getId()" class="button center">Cancel</a>
+
+
+        <!--private int quantity;-->
+        <!--private double price;-->
+        <!--private Brand brand;-->
+        <!--private ProductType productType;-->
+        <!--private Basket basket;-->
+        <!--private Shop shop;-->
