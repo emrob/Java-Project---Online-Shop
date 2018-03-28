@@ -1,6 +1,8 @@
 package controllers;
 
 import db.DBHelper;
+import models.Brand;
+import models.ProductType;
 import models.Stock;
 import spark.ModelAndView;
 import spark.Spark;
@@ -11,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import static spark.Spark.get;
+import static spark.Spark.post;
 
 public class StockController {
     public StockController() {
@@ -18,7 +21,7 @@ public class StockController {
     }
 
     private void setupEndPoints() {
-        Spark.get("/stock/:id/edit", (req, res) -> {
+        Spark.get("/products/:id/edit", (req, res) -> {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
             Stock stock = DBHelper.find(intId, Stock.class);
@@ -37,7 +40,7 @@ public class StockController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-        Spark.get("/stock/:id", (req,res) -> {
+        Spark.get("/products/:id", (req,res) -> {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
             Stock stockItem = DBHelper.find(intId, Stock.class);
@@ -46,5 +49,15 @@ public class StockController {
             model.put("template", "templates/stock/show.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
+
+//        Spark.post("/products/:id", (req, res) -> {
+//            String strId = req.params(":id");
+//            Integer intId = Integer.parseInt(strId);
+//            Stock stockItem = DBHelper.find(intId, Stock,class);
+//            int quantity = Integer.parseInt((req.queryParams("quantity"));
+//            double price = Double.parseDouble(req.queryParams("price"));)
+//        });
+
     }
 }
+

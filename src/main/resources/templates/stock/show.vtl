@@ -1,12 +1,16 @@
 <div>
 
-    <p> Price: $stockItem.getPrice()</p>
+    <p>Brand: $stockItem.getBrand()</p>
+    <p>Price: $stockItem.getPrice()</p>
+    <p>Quantity: $stockItem.getQuantity()</p>
+    <p>Product: $stockItem.getProductType()</p>
+
 
 </div>
 
 
 
 
-<a href="/products/$stock.getId()/edit" class="button center">Edit</a>
+<a href="/products/$stockItem.getId()/edit" class="button center">Edit</a>
 
 <a href="/products" class="button center">Back to product list</a>
