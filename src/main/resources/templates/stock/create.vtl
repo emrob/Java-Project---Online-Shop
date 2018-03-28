@@ -1,0 +1,28 @@
+<p class ="pageHeader">New Product</p>
+
+<form action="/products" method="post">
+<label for="quantity">Quantity</label>
+<input class="inputbox" type="text" name="quantity" required="true" >
+
+<label for="price">Price</label>
+<input class="inputbox" type="text"
+       name="price" required="true">
+
+<label for="brand">Brand</label>
+<select id="brand" name="brand">
+#foreach ($brand in $brands)
+<option>$brand</option>
+#end
+</select>
+
+
+
+
+<label for="productType">Product Type</label>
+<input class="inputbox" type="text"
+    name="productType" required="true" >
+
+<input type="submit" value="Save" class="button">
+
+</form>
+

@@ -5,5 +5,5 @@ public enum Brand {
     Eden,
     Green_People,
     Plant_Face,
-    Salt_of_the_Earth,
+    Salt_of_the_Earth
 }

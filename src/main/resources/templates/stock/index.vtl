@@ -1,19 +1,22 @@
 <p class="pageHeader">All Products:</p>
 
+<div>
+<a href="/" class="button center">Return to Homepage</a>
+</div>
+
+<div>
+<a href="/products/new" class="button center">Add Product</a>
+</div>
 
 <div class="container">
 <table>
     <tr>
-        <th>Quantity:</th>
-        <th>Price:</th>
         <th>Brand:</th>
         <th>Type:</th>
         <th></th>
     </tr>
     #foreach($stock in $stockItem)
     <tr>
-        <td>$stock.getQuantity()</td>
-        <td>$stock.getPrice()</td>
         <td>$stock.getBrand()</td>
         <td>$stock.getProductType()</td>
         <td><a href="/products/$stock.getId()" class="button center">Click here for details</a></td>
@@ -21,3 +24,4 @@
     #end
 </table>
 </div>
+

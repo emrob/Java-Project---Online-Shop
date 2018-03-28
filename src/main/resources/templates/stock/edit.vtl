@@ -8,9 +8,19 @@
 <input class="inputbox" type="text"
 name="price" required="true" value="$stock.getPrice()"/>
 
-<label for="brand">Brand</label>
-<input class="inputbox" type="text"
-       name="brand" required="true" value="$stock.getBrand()"/>
+
+<label for="brand">Brand:</label>
+<select id="brand" name="brand">
+    #foreach( $brand in $brands )
+    <option value="$brand"
+    #if ($brand == $stock.getBrand())
+    selected="selected"
+    #end>
+    $brand
+    </option>
+#end
+</select>
+
 
 <label for="productType">Product Type</label>
 <input class="inputbox" type="text"
@@ -20,5 +30,4 @@ name="price" required="true" value="$stock.getPrice()"/>
 
 </form>
 
-<!--<a href="/products/$stock.getId()" class="button center">Cancel</a>-->
 

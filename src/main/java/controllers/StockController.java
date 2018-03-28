@@ -26,9 +26,11 @@ public class StockController {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
             Stock stock = DBHelper.find(intId, Stock.class);
+            List<Brand> brands = DBHelper.getBrands();
             Map<String, Object> model = new HashMap<>();
-            model.put("template", "templates/stock/edit.vtl");
+            model.put("brands", brands);
             model.put("stock", stock);
+            model.put("template", "templates/stock/edit.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
@@ -42,7 +44,9 @@ public class StockController {
         }, new VelocityTemplateEngine());
 
         Spark.get("/products/new", (req, res) -> {
+            List<Brand> brands = DBHelper.getBrands();
             Map<String, Object> model = new HashMap<>();
+            model.put("brands", brands);
             model.put("template", "templates/stock/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
