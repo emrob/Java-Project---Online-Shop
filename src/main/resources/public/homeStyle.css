@@ -1,0 +1,16 @@
+body {
+  background: #E3E9F2 url('/images/earth.jpg') no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+
+
+}
+
+h1 {
+font-family: fantasy;
+font-size: 80px;
+color: #FAEBD7;
+text-align: center;
+margin: 150px auto;
+}

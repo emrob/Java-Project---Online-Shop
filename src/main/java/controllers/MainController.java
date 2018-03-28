@@ -20,7 +20,7 @@ public class MainController {
         Spark.get("/", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/main.vtl");
-            return new ModelAndView(model, "templates/layout.vtl");
+            return new ModelAndView(model, "templates/Homelayout.vtl");
         }, new VelocityTemplateEngine());
     }
 }
