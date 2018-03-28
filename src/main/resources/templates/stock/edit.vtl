@@ -21,10 +21,17 @@ name="price" required="true" value="$stock.getPrice()"/>
 #end
 </select>
 
-
-<label for="productType">Product Type</label>
-<input class="inputbox" type="text"
-       name="productType" required="true" value="$stock.getProductType()"/>
+<label for="productType">Product Type:</label>
+<select id="productType" name="productType">
+     #foreach( $productType in $productTypes )
+     <option value="$productType"
+     #if ($productType == $stock.getProductType())
+     selected="selected"
+     #end>
+     $productType
+     </option>
+        #end
+        </select>
 
 <input type="submit" value="Save" class="button">
 

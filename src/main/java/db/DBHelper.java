@@ -1,6 +1,7 @@
 package db;
 
 import models.Brand;
+import models.ProductType;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -115,5 +116,11 @@ public class DBHelper {
         ArrayList<Brand> brands = new ArrayList<>();
         Collections.addAll(brands, Brand.values());
         return brands;
+    }
+
+    public static ArrayList<ProductType> getProductTypeEnum(){
+        ArrayList<ProductType> productTypes = new ArrayList<>();
+        Collections.addAll(productTypes, ProductType.values());
+        return productTypes;
     }
 }

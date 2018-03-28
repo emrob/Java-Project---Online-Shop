@@ -27,8 +27,10 @@ public class StockController {
             Integer intId = Integer.parseInt(strId);
             Stock stock = DBHelper.find(intId, Stock.class);
             List<Brand> brands = DBHelper.getBrands();
+            List<ProductType> productTypes = DBHelper.getProductTypeEnum();
             Map<String, Object> model = new HashMap<>();
             model.put("brands", brands);
+            model.put("productTypes", productTypes);
             model.put("stock", stock);
             model.put("template", "templates/stock/edit.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
@@ -39,14 +41,17 @@ public class StockController {
             Map<String, Object> model = new HashMap<>();
             List<Stock> stockItem = DBHelper.getAll(Stock.class);
             model.put("stockItem", stockItem);
-               model.put("template", "templates/stock/index.vtl");
+            model.put("template", "templates/stock/index.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+
         Spark.get("/products/new", (req, res) -> {
-            List<Brand> brands = DBHelper.getBrands();
             Map<String, Object> model = new HashMap<>();
+            List<Brand> brands = DBHelper.getBrands();
+            List<ProductType> productTypes = DBHelper.getProductTypeEnum();
             model.put("brands", brands);
+            model.put("productTypes", productTypes);
             model.put("template", "templates/stock/create.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());

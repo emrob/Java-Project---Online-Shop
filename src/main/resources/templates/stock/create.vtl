@@ -16,11 +16,14 @@
 </select>
 
 
-
-
 <label for="productType">Product Type</label>
-<input class="inputbox" type="text"
-    name="productType" required="true" >
+<select id="productType" name="productType">
+    #foreach ($productType in $productTypes)
+    <option>$productType</option>
+    #end
+</select>
+
+
 
 <input type="submit" value="Save" class="button">
 
