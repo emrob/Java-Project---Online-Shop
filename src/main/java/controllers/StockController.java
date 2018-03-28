@@ -7,6 +7,7 @@ import models.Stock;
 import spark.ModelAndView;
 import spark.Spark;
 import spark.template.velocity.VelocityTemplateEngine;
+import sun.security.pkcs11.Secmod;
 
 import java.util.HashMap;
 import java.util.List;
@@ -40,6 +41,13 @@ public class StockController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
+        Spark.get("/products/new", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            model.put("template", "templates/stock/create.vtl");
+            return new ModelAndView(model, "templates/layout.vtl");
+        }, new VelocityTemplateEngine());
+
+
         Spark.get("/products/:id", (req,res) -> {
             String strId = req.params(":id");
             Integer intId = Integer.parseInt(strId);
@@ -50,13 +58,51 @@ public class StockController {
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 
-//        Spark.post("/products/:id", (req, res) -> {
-//            String strId = req.params(":id");
-//            Integer intId = Integer.parseInt(strId);
-//            Stock stockItem = DBHelper.find(intId, Stock,class);
-//            int quantity = Integer.parseInt((req.queryParams("quantity"));
-//            double price = Double.parseDouble(req.queryParams("price"));)
-//        });
+
+
+
+        Spark.post("/products", (req, res) -> {
+            int quantity = Integer.parseInt(req.queryParams("quantity"));
+            double price = Double.parseDouble(req.queryParams("price"));
+            String strBrand = req.queryParams("brand");
+            Brand enumBrand = Brand.valueOf(strBrand);
+            String strProductType = req.queryParams("productType");
+            ProductType enumProductType = ProductType.valueOf(strProductType);
+            Stock stock = new Stock(quantity, price, enumBrand, enumProductType);
+            DBHelper.save(stock);
+            res.redirect("/products");
+            return null;
+        }, new VelocityTemplateEngine());
+
+
+        Spark.post("/products/:id/delete", (req, res) -> {
+            int id = Integer.parseInt(req.params(":id"));
+            Stock stockToDelete = DBHelper.find(id, Stock.class);
+            DBHelper.delete(stockToDelete);
+            res.redirect("/products");
+            return null;
+        }, new VelocityTemplateEngine());
+
+        post ("/stock/:id", (req, res) -> {
+            String strId = req.params(":id");
+            Integer intId = Integer.parseInt(strId);
+            Stock stock = DBHelper.find(intId, Stock.class);
+            int quantity = Integer.parseInt(req.queryParams("quantity"));
+            double price = Double.parseDouble(req.queryParams("price"));
+            String strBrand = req.queryParams("brand");
+            Brand enumBrand = Brand.valueOf(strBrand);
+            String strProductType = req.queryParams("productType");
+            ProductType enumProductType = ProductType.valueOf(strProductType);
+
+            stock.setQuantity(quantity);
+            stock.setPrice(price);
+            stock.setBrand(enumBrand);
+            stock.setProductType(enumProductType);
+            DBHelper.update(stock);
+            res.redirect("/products");
+            return null;
+
+        }, new VelocityTemplateEngine());
 
     }
 }
