@@ -1,10 +1,31 @@
+body {
+
+font-size: 10px;
+
+}
+
+
 .flex-container {
 display: flex;
 justify-content: center;
-height: 500px;
+height: 400px;
 align-items: center;
 }
 
-p {
-font-size: 10px;
+.page-header {
+
+font-size: 12px;
+
 }
+
+.product-details {
+
+font-size: 15px;
+
+}
+
+.pageHeader {
+font-size: 20px;
+}
+
+

@@ -1,7 +1,5 @@
 
-<a href="/products" class="button center">Back to product list</a>
-
-<div>
+<div class="product-details">
 
     <p>Brand: $stockItem.getBrand()</p>
     <p>Price: £ $stockItem.getPrice()</p>
@@ -20,5 +18,10 @@
 
 <form action="/products/$stockItem.getId()/delete" method="post">
 <input type="submit" value="Delete" class="button center">
+</form>
+
+
+<form action="/products" method="get">
+<input type="submit" value="Back to product list" class="button center">
 </form>
 
