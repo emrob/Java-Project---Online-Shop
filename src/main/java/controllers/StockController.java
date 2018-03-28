@@ -29,6 +29,8 @@ public class StockController {
             List<Brand> brands = DBHelper.getBrands();
             List<ProductType> productTypes = DBHelper.getProductTypeEnum();
             Map<String, Object> model = new HashMap<>();
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             model.put("brands", brands);
             model.put("productTypes", productTypes);
             model.put("stock", stock);
@@ -39,6 +41,8 @@ public class StockController {
 
         Spark.get("/products", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             List<Stock> stockItem = DBHelper.getAll(Stock.class);
             model.put("stockItem", stockItem);
             model.put("template", "templates/stock/index.vtl");
@@ -48,6 +52,8 @@ public class StockController {
 
         Spark.get("/products/new", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             List<Brand> brands = DBHelper.getBrands();
             List<ProductType> productTypes = DBHelper.getProductTypeEnum();
             model.put("brands", brands);
@@ -62,6 +68,8 @@ public class StockController {
             Integer intId = Integer.parseInt(strId);
             Stock stockItem = DBHelper.find(intId, Stock.class);
             Map<String, Object> model = new HashMap<>();
+            String loggedInUser = LoginController.getLoggedInUserName(req, res);
+            model.put("user", loggedInUser);
             model.put("stockItem", stockItem);
             model.put("template", "templates/stock/show.vtl");
             return new ModelAndView(model, "templates/layout.vtl");
