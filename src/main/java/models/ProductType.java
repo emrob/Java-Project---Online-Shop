@@ -6,4 +6,6 @@ public enum ProductType {
     Eyeliner,
     Foundation,
     Lipstick,
+    Concealer,
+
 }

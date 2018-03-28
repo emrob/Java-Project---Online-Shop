@@ -20,8 +20,6 @@ public class MainController {
         new LoginController();
         Spark.get("/Home", (req, res) -> {
             Map<String, Object> model = new HashMap();
-//            String loggedInUser = LoginController.getLoggedInUserName(req, res);
-//            model.put("user", loggedInUser);
             model.put("template", "templates/main.vtl");
             return new ModelAndView(model, "templates/Homelayout.vtl");
         }, new VelocityTemplateEngine());
