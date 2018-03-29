@@ -48,10 +48,14 @@ margin:
 
 }
 
-ul {
+ul li {
 
+list-style-type: none;
 padding: 2;
-margin: 0;
+margin: 100;
+text-align: center;
+align-items: center;
+
 
 }
 
@@ -61,5 +65,17 @@ margin: 1.5em 0;
 
 .image {
 height: 90px ;
+
+
+}
+
+table {
+    width: 100%;
+}
+
+th td {
+    height: 50px;
+    text-align: left;
+    padding: 30px;
 
 }
