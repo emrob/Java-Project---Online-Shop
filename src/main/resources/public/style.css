@@ -1,6 +1,9 @@
 body {
 
 font-size: 10px;
+background: url('/images/cloud.jpg');
+background-repeat: no-repeat;
+background-size: cover;
 
 }
 
@@ -10,6 +13,7 @@ display: flex;
 justify-content: center;
 height: 400px;
 align-items: center;
+mix-blend-mode: multiply;
 }
 
 
@@ -23,6 +27,12 @@ font-size: 15px;
 font-size: 50px;
 text-align: center;
 font-family: fantasy;
+}
+
+.welcome {
+font-size: 20px;
+font-family: fantasy;
+
 }
 
 .form {
@@ -43,4 +53,8 @@ ul {
 padding: 2;
 margin: 0;
 
+}
+
+li {
+margin: 1.5em 0;
 }

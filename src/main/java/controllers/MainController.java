@@ -18,6 +18,7 @@ public class MainController {
         SparkBase.staticFileLocation("/public");
         new StockController();
         new LoginController();
+        new BasketController();
         Spark.get("/Home", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/main.vtl");

@@ -8,7 +8,7 @@ import java.util.Set;
 public class Basket {
 
     private int id;
-    private Set<Stock>stockItems;
+    private Set<Stock> stockItems;
     private Customer customer;
     private Shop shop;
 
@@ -39,11 +39,6 @@ public class Basket {
         this.stockItems = stockItems;
     }
 
-//
-//    public int getBasketSize(){
-//        return this.stockItems.size();
-//    }
-
 
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     public Customer getCustomer() {
@@ -55,7 +50,7 @@ public class Basket {
     }
 
     @ManyToOne
-    @JoinColumn(name="shop_id")
+    @JoinColumn(name = "shop_id")
     public Shop getShop() {
         return shop;
     }
@@ -63,4 +58,27 @@ public class Basket {
     public void setShop(Shop shop) {
         this.shop = shop;
     }
+
+    public void addToBasket(Stock stock) {
+        this.stockItems.add(stock);
+
+    }
+
+    public int basketSize() {
+         return stockItems.size();
+    }
+
+    public String numItemsinBasket(){
+        basketSize();
+        if (basketSize() == 0)
+        return "Your basket is currently empty";
+                else
+                    return "You have " + basketSize() + " items in your basket";
+
+
+    }
+
+
 }
+
+

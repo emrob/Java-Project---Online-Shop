@@ -18,7 +18,7 @@ public class Shop {
 
     public Shop(String name) {
         this.name = name;
-//        this.stockItems= stockItems;
+
 
     }
 
@@ -50,10 +50,7 @@ public class Shop {
     public void setBaskets(Set<Basket> baskets) {
         this.baskets = baskets;
     }
-//
-//    public int getBasketSize(){
-//        return baskets.size();
-//    }
+
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "shop")
     public Set<Stock> getStockItems() {
