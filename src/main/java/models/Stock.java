@@ -92,4 +92,12 @@ public class Stock {
     public void setShop(Shop shop) {
         this.shop = shop;
     }
+
+    public String checkAvailability(){
+        if (quantity > 0)
+            return getQuantity() + " in stock";
+        else
+            return "Currently out of stock";
+    }
+
 }

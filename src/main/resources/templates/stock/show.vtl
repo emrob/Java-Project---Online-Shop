@@ -3,11 +3,12 @@
 
     <p>Brand: $stockItem.getBrand()</p>
     <p>Price: £ $stockItem.getPrice()</p>
-    <p>Quantity: $stockItem.getQuantity()</p>
+    <p>Quantity: $stockItem.checkAvailability()</p>
     <p>Product: $stockItem.getProductType()</p>
 
 
 </div>
+
 
 
 <form action="/products/$stockItem.getId()/edit" method="get">

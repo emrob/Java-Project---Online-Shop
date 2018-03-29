@@ -19,9 +19,9 @@ public class Seeds {
 
         Stock stock0 = new Stock(200, 37.99, Brand.Inika, ProductType.Foundation);
         DBHelper.save(stock0);
-        Stock stock1 = new Stock(200, 5.99, Brand.Green_People, ProductType.Eyeliner);
+        Stock stock1 = new Stock(100, 5.99, Brand.Green_People, ProductType.Eyeliner);
         DBHelper.save(stock1);
-        Stock stock2 = new Stock(300, 35.99, Brand.Eden, ProductType.Perfume);
+        Stock stock2 = new Stock(70, 35.99, Brand.Eden, ProductType.Perfume);
         DBHelper.save(stock2);
         Stock stock3 = new Stock(200, 10.99, Brand.Plant_Face, ProductType.Mascara);
         DBHelper.save(stock3);
@@ -31,10 +31,10 @@ public class Seeds {
         DBHelper.save(stock5);
         Stock stock6 = new Stock(110, 5.75, Brand.Sukin, ProductType.Concealer);
         DBHelper.save(stock6);
-        Stock stock7 = new Stock(230, 15.75, Brand.Dr_Organic, ProductType.Perfume);
-        DBHelper.save(stock6);
+        Stock stock7 = new Stock(0, 15.75, Brand.Dr_Organic, ProductType.Perfume);
+        DBHelper.save(stock7);
         Stock stock8 = new Stock(110, 25.75, Brand.Salt_of_the_Earth, ProductType.Eyeliner);
-        DBHelper.save(stock6);
+        DBHelper.save(stock8);
     }
 }
 

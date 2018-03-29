@@ -1,29 +1,21 @@
-body {
-  background: #E3E9F2 ('/images/.jpg) no-repeat;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-attachment: fixed;
 
-
-
-
-}
 
 h1 {
 font-family: fantasy;
-font-size: 100px;
-color: black;
+font-size: 50px;
 text-align: center;
-margin: 450px auto;
 }
 
 
+p {
+text-align: center;
+}
 
-
-
-.flex-container {
+.img {
 display: flex;
 justify-content: center;
-height: 400px;
 align-items: center;
+
 }
+
+
