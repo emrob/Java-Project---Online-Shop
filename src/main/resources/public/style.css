@@ -12,11 +12,6 @@ height: 400px;
 align-items: center;
 }
 
-.page-header {
-
-font-size: 12px;
-
-}
 
 .product-details {
 
@@ -28,4 +23,7 @@ font-size: 15px;
 font-size: 20px;
 }
 
+.form {
+font-size: 15px;
+}
 

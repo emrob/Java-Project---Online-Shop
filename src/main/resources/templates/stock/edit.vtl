@@ -1,6 +1,6 @@
 <p class ="pageHeader">Edit Item</p>
 
-<form action="/products" method="post">
+<form action="/stock/$stock.getId()" method="post" class ="form">
 <label for="quantity">Quantity</label>
 <input class="inputbox" type="text" name="quantity" required="true" value="$stock.getQuantity()"/>
 

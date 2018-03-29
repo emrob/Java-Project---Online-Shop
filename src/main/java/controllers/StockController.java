@@ -33,8 +33,8 @@ public class StockController {
             model.put("user", loggedInUser);
             model.put("brands", brands);
             model.put("productTypes", productTypes);
-            model.put("stock", stock);
             model.put("template", "templates/stock/edit.vtl");
+            model.put("stock", stock);
             return new ModelAndView(model, "templates/layout.vtl");
         }, new VelocityTemplateEngine());
 

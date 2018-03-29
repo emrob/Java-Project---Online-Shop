@@ -23,5 +23,11 @@ public class MainController {
             model.put("template", "templates/main.vtl");
             return new ModelAndView(model, "templates/Homelayout.vtl");
         }, new VelocityTemplateEngine());
+
+        Spark.get("/About", (req, res) -> {
+            Map<String, Object> model = new HashMap();
+            model.put("template", "templates/About.vtl");
+            return new ModelAndView(model, "templates/AboutLayout.vtl");
+        }, new VelocityTemplateEngine());
     }
 }
