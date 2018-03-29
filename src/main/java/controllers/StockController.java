@@ -81,11 +81,12 @@ public class StockController {
         Spark.post("/products", (req, res) -> {
             int quantity = Integer.parseInt(req.queryParams("quantity"));
             double price = Double.parseDouble(req.queryParams("price"));
+            String image = req.queryParams("image");
             String strBrand = req.queryParams("brand");
             Brand enumBrand = Brand.valueOf(strBrand);
             String strProductType = req.queryParams("productType");
             ProductType enumProductType = ProductType.valueOf(strProductType);
-            Stock stock = new Stock(quantity, price, enumBrand, enumProductType);
+            Stock stock = new Stock(quantity, price, image, enumBrand, enumProductType);
             DBHelper.save(stock);
             res.redirect("/products");
             return null;
@@ -106,6 +107,7 @@ public class StockController {
             Stock stock = DBHelper.find(intId, Stock.class);
             int quantity = Integer.parseInt(req.queryParams("quantity"));
             double price = Double.parseDouble(req.queryParams("price"));
+            String image = req.queryParams("image");
             String strBrand = req.queryParams("brand");
             Brand enumBrand = Brand.valueOf(strBrand);
             String strProductType = req.queryParams("productType");
@@ -113,6 +115,7 @@ public class StockController {
 
             stock.setQuantity(quantity);
             stock.setPrice(price);
+            stock.setImage(image);
             stock.setBrand(enumBrand);
             stock.setProductType(enumProductType);
             DBHelper.update(stock);

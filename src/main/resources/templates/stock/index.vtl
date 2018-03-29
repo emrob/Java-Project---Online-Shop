@@ -4,18 +4,24 @@
 <ul>
     #foreach($stock in $stockItem)
     <li>$stock.getProductType() by $stock.getBrand()
-    <a href="/products/$stock.getId()" class="button center">Click here for details</a></li>
+        <!--<img src="$stock.getImage()" height ="5px">-->
+        <a href="/products/$stock.getId()" class="button center">Click here for details</a></li>
     #end
 </ul>
 
+
+
 <!--<table>-->
     <!--<tr>-->
+        <!--<th>Image:</th>-->
         <!--<th>Brand:</th>-->
         <!--<th>Type:</th>-->
+
         <!--<th></th>-->
     <!--</tr>-->
     <!--#foreach($stock in $stockItem)-->
     <!--<tr>-->
+        <!--<td><img src="$stock.getImage()" height ="2px" width ="5px"></td>-->
         <!--<td>$stock.getBrand()</td>-->
         <!--<td>$stock.getProductType()</td>-->
         <!--<td><a href="/products/$stock.getId()" class="button center">Click here for details</a></td>-->

@@ -9,6 +9,7 @@ public class Stock {
     private int id;
     private int quantity;
     private double price;
+    private String image;
     private Brand brand;
     private ProductType productType;
     private Basket basket;
@@ -17,9 +18,10 @@ public class Stock {
     public Stock() {
     }
 
-    public Stock(int quantity, double price, Brand brand, ProductType productType){
+    public Stock(int quantity, double price, String image, Brand brand, ProductType productType){
         this.quantity = quantity;
         this.price = price;
+        this.image = image;
         this.brand = brand;
         this.productType = productType;
     }
@@ -53,6 +55,15 @@ public class Stock {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    @Column(name="image")
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     @Column(name="brand")

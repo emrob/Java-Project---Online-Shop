@@ -19,6 +19,7 @@ public class MainController {
         new StockController();
         new LoginController();
         new BasketController();
+        new RegisterController();
         Spark.get("/Home", (req, res) -> {
             Map<String, Object> model = new HashMap();
             model.put("template", "templates/main.vtl");

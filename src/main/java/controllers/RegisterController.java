@@ -11,40 +11,35 @@ import java.util.Map;
 import static spark.Spark.get;
 import static spark.Spark.post;
 
-public class LoginController {
-    public LoginController() {
+public class RegisterController {
+    public RegisterController() {
         this.setupEndpoints();
     }
 
     private void setupEndpoints() {
 
-        get ("/login", (req, res) -> {
+        get("/register", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
-            return new ModelAndView(model, "templates/Login.vtl");
+            return new ModelAndView(model, "templates/Register.vtl");
         }, new VelocityTemplateEngine());
 
-        post("/login", (req, res) -> {
+        post("/register", (req, res) -> {
             String username = req.queryParams("username");
             req.session().attribute("username", username);
-            res.redirect("/products");
+            res.redirect("/thanks");
             return null;
         }, new VelocityTemplateEngine());
 
+        get("/thanks", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+            return new ModelAndView(model, "templates/Thanks.vtl");
+        }, new VelocityTemplateEngine());
 
-
-        get ("/logout", (req, res) -> {
+        get("/register", (req, res) -> {
             req.session().removeAttribute("username");
             res.redirect("/Home");
             return null;
         }, new VelocityTemplateEngine());
     }
 
-    public static String getLoggedInUserName(Request req, Response res) {
-        String username = req.session().attribute("username");
-        if (username == null || username.isEmpty()) {
-            res.redirect("/login");
-        }
-        return username;
-    }
 }
-

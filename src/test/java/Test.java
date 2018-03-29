@@ -13,7 +13,7 @@ public class Test {
 
     @Before
     public void before(){
-        stock = new Stock(200, 10.99, Brand.Inika,ProductType.Mascara);
+        stock = new Stock(200, 10.99, "/images/earth.jpg", Brand.Inika,ProductType.Mascara);
         customer = new Customer("Marie");
         basket = new Basket(customer);
 
