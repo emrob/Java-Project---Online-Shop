@@ -4,25 +4,9 @@
 <ul>
     #foreach($stock in $stockItem)
     <li><a href="/products/$stock.getId()"><img class="image" src="$stock.getImage()"</a></li>
-    <!--<li>$stock.getProductType() by $stock.getBrand()-->
-        <!--<img class="image" src="$stock.getImage()">-->
-     <!---->
-        <!--<a href="/products/$stock.getId()" class="button center">Click here for details</a></li>-->
+
     #end
 </ul>
-
-        <!--<td>$stock.getBrand()</td>-->
-        <!--<td>$stock.getProductType()</td>-->
-
-
-<!--<table>-->
-    <!--#foreach($stock in $stockItem)-->
-    <!--<tr>-->
-        <!--<td><a href="/products/$stock.getId()"><img class="image" src="$stock.getImage()"</a></td>-->
-        <!--&lt;!&ndash;<td><a href="/products/$stock.getId()" class="button center">Click here for details</a></td>&ndash;&gt;-->
-    <!--</tr>-->
-    <!--#end-->
-<!--</table>-->
 
 <form action="/products/new" method="get">
     <input type="submit" value="Add Product" class="button center">

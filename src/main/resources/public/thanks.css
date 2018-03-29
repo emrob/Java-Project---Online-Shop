@@ -1,0 +1,14 @@
+body {
+  background: #E3E9F2 url('/images/face.jpg') no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  background-attachment: fixed;
+
+
+}
+
+
+h1 {
+font-size: 50px;
+font-family: fantasy;
+}
